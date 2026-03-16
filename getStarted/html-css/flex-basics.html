@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- Flexbox theory + examples for students -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Basics</title>
+  <style>
+    /* 1) Reset for consistent spacing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f9fc;
+      color: #1f2937;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1000px, 92%);
+      margin: 24px auto 40px;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .intro {
+      margin-bottom: 20px;
+      color: #4b5563;
+    }
+
+    .card {
+      background: #ffffff;
+      border-left: 4px solid #2563eb;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .notes {
+      margin: 8px 0 0 20px;
+    }
+
+    .notes li {
+      margin: 6px 0;
+    }
+
+    /* Base flex container used in all demos */
+    .flex-demo {
+      display: flex;
+      border: 2px dashed #93c5fd;
+      background: #eff6ff;
+      padding: 10px;
+      gap: 10px;
+      margin-top: 10px;
+      min-height: 90px;
+    }
+
+    /* Shared style for all flex items */
+    .item {
+      background: #2563eb;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      min-width: 60px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Example 1: Main-axis alignment */
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    /* Example 2: Column direction (main axis becomes vertical) */
+    .column {
+      flex-direction: column;
+      min-height: 180px;
+    }
+
+    /* Example 3: Cross-axis alignment */
+    .align-center {
+      align-items: center;
+      min-height: 130px;
+    }
+
+    .tall {
+      height: 70px;
+    }
+
+    .short {
+      height: 40px;
+    }
+
+    /* Example 4: Wrapping when items do not fit */
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    /* Example 5: flex-grow shares free space */
+    .grow .item {
+      flex-grow: 1;
+    }
+
+    .grow .item.g3 {
+      flex-grow: 3;
+      background: #0ea5e9;
+    }
+
+    /* Example 6: order changes visual order */
+    .order .first {
+      order: 3;
+      background: #ef4444;
+    }
+
+    .order .second {
+      order: 1;
+      background: #10b981;
+    }
+
+    .order .third {
+      order: 2;
+      background: #f59e0b;
+    }
+
+    /* Practical mini-navbar example */
+    .nav-demo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: #0f172a;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: #1e293b;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Flexbox Theory + Examples</h1>
+    <p class="intro">Flexbox is a 1-dimensional layout system. It arranges items in a row or a column and makes alignment easy.</p>
+
+    <section class="card">
+      <p class="label">Core Theory</p>
+      <ul class="notes">
+        <li><strong>Flex Container:</strong> parent with <code>display: flex;</code></li>
+        <li><strong>Flex Items:</strong> direct children of that parent</li>
+        <li><strong>Main Axis:</strong> direction of <code>flex-direction</code> (row by default)</li>
+        <li><strong>Cross Axis:</strong> perpendicular to main axis</li>
+        <li><strong>justify-content:</strong> aligns items on main axis</li>
+        <li><strong>align-items:</strong> aligns items on cross axis</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 1: justify-content</p>
+      <p>Items spread on main axis using <code>space-between</code>.</p>
+      <div class="flex-demo justify-between">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 2: flex-direction column</p>
+      <p>Main axis becomes vertical with <code>flex-direction: column</code>.</p>
+      <div class="flex-demo column">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 3: align-items center</p>
+      <p>Items align in the center of cross axis.</p>
+      <div class="flex-demo align-center">
+        <div class="item short">S</div>
+        <div class="item tall">T</div>
+        <div class="item short">S</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 4: flex-wrap</p>
+      <p>Items move to new line when space is not enough.</p>
+      <div class="flex-demo wrap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 5: flex-grow</p>
+      <p>Item C has <code>flex-grow: 3</code>, so it takes 3x more free space than A or B.</p>
+      <div class="flex-demo grow">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item g3">C</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Example 6: order</p>
+      <p>Visual order can change without changing HTML order.</p>
+      <div class="flex-demo order">
+        <div class="item first">First (order 3)</div>
+        <div class="item second">Second (order 1)</div>
+        <div class="item third">Third (order 2)</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label">Practical Example: Navbar</p>
+      <p>Real use case with logo on left and links on right.</p>
+      <div class="nav-demo">
+        <strong>MySite</strong>
+        <div class="nav-links">
+          <span class="pill">Home</span>
+          <span class="pill">Courses</span>
+          <span class="pill">About</span>
+          <span class="pill">Contact</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
