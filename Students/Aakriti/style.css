@@ -5,32 +5,33 @@
     
 }
 #container{
-
+    position:relative;
     background-color: blueviolet;
-    width:60vw;
-    height:60vh;
+    width:50vw;
+    height:40vh;
     border-radius:15px;
-    display:flex;
+    /* display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:center; */
     
 
 
 }
 .child{
+    position:absolute;
     background-color:blue;
-    width: 10px;
-    height:20px;
+    width: 60px;
+    height:80px;
 }
 .child1{
     top:0;
-    left:30px;
+    left:10px;
 }
 .child2{
-    /* top:0;
-    left:50px; */
+    top:0;
+    right:10px;
 }
 .child3{
-    /* bottom:0;
-    left:30px; */
+    bottom:0;
+    right:10px;
 }
