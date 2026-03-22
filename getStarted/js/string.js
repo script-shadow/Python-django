@@ -7,7 +7,7 @@ console.log(str1+' '+str2);
 
 const name = "saugat";
 //            012345
-//            654321   
+//            654321-   
 
 const age = 20;
 console.log("hello my name is " + name + " and I am " + age + " years old.");
@@ -40,8 +40,21 @@ console.log(url.replace('choudhary',"bagale"))
 console.log(url.replace('saugat'))
 console.log(url.split('saugat'))
 
-const url2='https://github.com/Montessori%20Visualization/JS-101-with-html-css/tree/main/basics0'
+let url2='https://github.com/Montessori%20Visualization/JS-101-with-html-css/tree/main/basics0'
 // https://github.com/SaugatBagale/JS-101-with-html-css/tree/main/basics0
+url2=url2.replace('%20',' ')
+url2=url2.split(' ')
+url2[0]=url2[0].replace('Montessori','Saugat')
+url2[1]= url2[1].replace('Visualization','Bagale')
+console.log(url2.join(''))
+const user = "MontessoriVisualization";
+const repos = "JS-101-with-html-css";
+
+const gitApi=`https://api.github.com/${user}/${repos}`
+
+console.log(gitApi);
+
+
 
 
 
