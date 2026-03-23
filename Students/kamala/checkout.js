@@ -1,14 +1,13 @@
 // Smart checkout system 
-const walletBalance = 5000;
+const walletBalance = 500;
 let cartItems = [500, 1200, 350];
 cartItems.push(2000);
 cartItems.pop();
 let recommendedItems = [100,200];
-let finaCart= [...CartItems , ...recommendedItems];
+let finalCart= [...cartItems , ...recommendedItems];
 let totalPrice = finalCart[0]+ finalCart[1]+finalCart[2]+finalCart[3]+ finalCart[4];
-totalPrice=totalPrice+(totalPrice* 0.10);
-totalprice = Number(totalPrice.tofixed(2));
-totalPrice = Number(totalPrice.toFixed(2));
+totalPrice=totalPrice-(totalPrice* 0.10);
+totalprice = totalPrice.toFixed(2);
 
 let couponCode = "   DisCOunT10   ";
 couponCode = couponCode.trim().toUpperCase();
