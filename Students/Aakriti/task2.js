@@ -64,7 +64,7 @@ const extraDetails={
     color:"Silver"
 }
 
-let updatedLaptop=[{...inventory[0],...extraDetails}]
+let updatedLaptop = { ...inventory[0], ...extraDetails };
 console.log(updatedLaptop)
 
 // The Sale Function (Arrow Functions):
