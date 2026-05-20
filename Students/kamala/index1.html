@@ -62,10 +62,11 @@ border:none;
 
 <script>
 function addTask(){
-
+// doc = Whole webpage. Find element named task. . value = Get what user typed. like if user type home then tasks="home"
 let task=document.getElementById("task").value;
 
 if(task==""){
+    // Popup says: enter task
 alert("Enter task");
 return;
 }
